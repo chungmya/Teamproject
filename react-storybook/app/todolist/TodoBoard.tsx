@@ -7,7 +7,6 @@ import TodoItem from "./TodoItem";
 function TodoBoard(props) {
 	return (
 		<div className="todoboard">
-			<h1>Todo List</h1>
 			{props.todoList.map((item)=><TodoItem item={item}/>)}
 		</div>
 	);

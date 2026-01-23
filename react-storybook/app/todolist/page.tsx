@@ -6,7 +6,17 @@ import TodoBoard from "./TodoBoard";
 
 function App() {
 	const [inputValue, setInputValue] = useState('')
-	const [todoList, setTodoList] = useState([])
+	const [todoList, setTodoList] = useState([
+		{
+			id: 1, title:"밥먹기기", completed: false
+		},
+		{
+			id: 2, title:"독서하기기", completed: false
+		},
+	])
+
+
+
 
 
 	const addItem=() => {
@@ -18,9 +28,15 @@ function App() {
   return (
     <main>
 			<div className="container">
-				<input value={inputValue} type="text" onChange={(event)=>setInputValue(event.target.value)}/>
-				<button onClick={addItem}>Todo Add</button>
-				<TodoBoard todoList={todoList} />
+				<h1>TodoList chungmya</h1>
+				<div className="todo-wrap">
+				<div className="category">
+					<p>목표 1</p>
+				</div>
+					<input value={inputValue} type="text" onChange={(event)=>setInputValue(event.target.value)}/>
+					<button onClick={addItem}>Todo Add</button>
+					<TodoBoard todoList={todoList} />
+				</div>
 			</div>
 		</main>
   );

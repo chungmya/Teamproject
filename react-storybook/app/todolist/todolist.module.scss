@@ -1,13 +1,27 @@
 
 .container {
-	padding: 5rem;
+	padding: 2rem 5rem;
+	
+	.todo-wrap {
+	border-radius: 1rem;
+	border: 1px solid #bcbcbc;
+	padding: 1rem;
+	}
+
+	.category {
+		background-color: #eee;
+		border-radius: 10rem;
+		padding: 0.2rem;
+		width: 5rem;
+		text-align: center;
+		display: flex;
+	}
+
+	.completed {
+		text-decoration: line-through;
+		color: #bcbcbc;
+		pointer-events: none;
+	}
+
 }
 
-.avatar {
-  border-radius: 50%;
-}
-
-.todoboard {
-	background-color: #eeee;
-	padding: 10rem;
-}
