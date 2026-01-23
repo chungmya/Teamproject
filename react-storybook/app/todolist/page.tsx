@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import style from "./todolist.module.scss";
+import styles from "./todolist.module.scss";
 import TodoBoard from "./TodoBoard";
 
 
@@ -17,9 +17,11 @@ function App() {
 
   return (
     <main>
-			<input value={inputValue} type="text" onChange={(event)=>setInputValue(event.target.value)}/>
-			<button onClick={addItem}>Todo Add</button>
-			<TodoBoard todoList={todoList} />
+			<div className="container">
+				<input value={inputValue} type="text" onChange={(event)=>setInputValue(event.target.value)}/>
+				<button onClick={addItem}>Todo Add</button>
+				<TodoBoard todoList={todoList} />
+			</div>
 		</main>
   );
 }
