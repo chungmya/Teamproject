@@ -1,4 +1,4 @@
-import { use } from "react";
+import { useState } from "react";
 
 
 function TodoItem(props) {
@@ -13,7 +13,9 @@ function TodoItem(props) {
 					checked={completed}
 					onChange={() => setCompleted(!completed)}
 					/>
-					<span>{addItem}</span>
+					<span className={completed ? styles.completed : ""}>
+        할 일 하나
+      </span>
 				</li>
 			</ul>
 		</div>
