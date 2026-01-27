@@ -1,17 +1,32 @@
 
-type topic = {
+  const topics = [
+    {id:1, title:'html', body:'html is ...'},
+    {id:2, title:'scss', body:'scss is ...'},
+    {id:3, title:'reat', body:'reat is ...'},
+  ]
+	
+type Topic = {
 	id:number;
 	title: string;
 	body: string,
 }
 
-function Nav(props: {topics:topic[]}) {
+type NavProps = {
+	topics : Topic[],
+	onChangeMode: (id: number) => void;
+}
+
+function Nav({topics, onChangeMode}: NavProps) {
   return (
        <nav>
         <ol>
-					{props.topics.map((topic)=> (
+					{topics.map((topic)=> (
 						<li key={topic.id}>
-							<a href="#">{topic.title}</a>
+							<a href={'/read/'+topic.id} onClick={(event)=>{
+								event.preventDefault();
+								onChangeMode(topic.id);
+							}}
+						>{topic.title}</a>
 						</li>
 					))}
         </ol>

@@ -1,5 +1,6 @@
+"use client";
 import Header from "@/components/Header/Header";
-import Nav from "@/components/Header/nav";
+import Nav from "@/components/Header/Nav";
 import Article from "@/components/Contents/Article";
 
 
@@ -14,10 +15,12 @@ export default function Home() {
 
   return (
     <div>
-      <Header title="Chungmya" onChangeMode={() =>{
-        console.log("clicked");
-      }} />
-      <Nav topics={topics}/>
+      <Header title="Chungmya" onChangeMode={() =>{ console.log("clicked");}} />
+      <Nav topics={topics}
+      onChangeMode= {(id) => {
+        console.log("clicked id:", id);
+      }}
+      />
       <Article />
     </div>
   );
