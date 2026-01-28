@@ -5,14 +5,14 @@ import Nav from "@/components/Header/Nav";
 import Article from "@/components/Contents/Article";
 
 export default function Home() {
-  const topics = [
+  const topics: Topic[] = [
     {id:1, title:'html', body:'html is ...'},
     {id:2, title:'scss', body:'scss is ...'},
     {id:3, title:'react', body:'reat is ...'},
   ]
   
   //<"WELCOME" | "READ">
-  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [selectedTopic, setSelectedTopic] = useState<Topic>(topics[0]);
   let content = null;
 
   if(selectedTopic === null){
@@ -31,13 +31,13 @@ export default function Home() {
   return (
     <div>
       <Header title="Chungmya" onChangeMode={() =>{ setMode('WELCOME');}} />
+
       <Nav topics={topics} 
       onSelect = {(topic) => {
         setSelectedTopic(topic);
       }}
       />
-     {content}
-
+      {content}
     </div>
   );
 }

@@ -6,13 +6,6 @@ type Topic = {
 	body: string,
 }
 
-
-// type onSelect = {
-// 	console.log('aaa');
-// 	topics : Topic[],
-// 	onChangeMode: (id: number) => void;
-// }
-
 export default function Nav({topics, onSelect}) {
   return (
        <nav>
@@ -21,7 +14,7 @@ export default function Nav({topics, onSelect}) {
 						<li key={topic.id}>
 							<a href={'/read/'+topic.id} onClick={(event)=>{
 								event.preventDefault();
-								onSelect(topic.id);
+								onSelect(topic);
 							}}
 						>{topic.title}</a>
 						</li>
