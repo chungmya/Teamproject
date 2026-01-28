@@ -5,39 +5,77 @@ import Nav from "@/components/Header/Nav";
 import Article from "@/components/Contents/Article";
 
 export default function Home() {
-  const topics: Topic[] = [
+
+  const [topics, SetTopics] = useState<Topic[]>([
     {id:1, title:'html', body:'html is ...'},
     {id:2, title:'scss', body:'scss is ...'},
     {id:3, title:'react', body:'reat is ...'},
-  ]
-  
-  //<"WELCOME" | "READ">
-  const [selectedTopic, setSelectedTopic] = useState<Topic>(topics[0]);
+  ]);
+
+  const [nexId, setNextId] = useState(4);
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(topics[0]);
+  const [isCreate, setIsCreate] = useState(false);
+
   let content = null;
 
-  if(selectedTopic === null){
-    content = <Article title="welcome" body="Hello, WEB"></Article>
+  if(isCreate){
+    content = <Create onCreate={(_title, _body)=>{
+      const newTopic = {id:nexId, title:_title, body:_body}
+      const newTopics = [...topics]
+      newTopics.push(newTopic);
+      SetTopics(newTopics);
+    }}/>;
+  } else if (selectedTopic === null) {
+    content = <Article title="welcome" body="Hello, WEB" />
   } else {
     content = (
-    <Article 
-      title={selectedTopic.title}
-      body={selectedTopic.body}>
-    </Article>
-    )
+      <Article 
+        title={selectedTopic.title}
+        body={selectedTopic.body}
+       />
+    );
   }
-
-  //const [id, setId] = useState(null);
 
   return (
     <div>
-      <Header title="Chungmya" onChangeMode={() =>{ setMode('WELCOME');}} />
+      <Header title="Chungmya" />
 
-      <Nav topics={topics} 
-      onSelect = {(topic) => {
+      <Nav 
+        topics={topics} 
+        onSelect = {(topic: Topic) => {
+        setIsCreate(false);
         setSelectedTopic(topic);
       }}
       />
+
       {content}
+
+      {<a href="/create" 
+      onClick={(e)=> {
+        e.preventDefault();
+        setIsCreate(true);
+      }}>Create</a>}
+
     </div>
   );
+  
+
+  function Create(props) {
+    return (
+    <article>
+      <h2>Create</h2>
+      <form onSubmit={(e)=>{
+        e.preventDefault();
+        const title = e.target.title.value;
+        const body = e.target.body.value;
+        props.onCreate(title, body);
+      }}>
+        <p><input type="text" name="title" placeholder="title"/></p>
+        <p><textarea name="body" placeholder="body"></textarea></p>
+        <p><input type="submit" value="Create"></input></p>
+
+      </form>
+    </article>
+    )
+  }
 }

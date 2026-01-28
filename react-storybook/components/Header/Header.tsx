@@ -1,5 +1,4 @@
 "use client";
-import styles from "./Header.module.scss";
 
 type HeaderProps = {
   title: string;
@@ -7,9 +6,9 @@ type HeaderProps = {
 };
 
 
-function Header({title, onChangeMode}: HeaderProps) {
+export default function Header({title, onChangeMode} : HeaderProps) {
   return (
-      <header>
+      <header >
         <h1>
 					<a href="#" onClick={(event)=>{
 					event.preventDefault();
@@ -21,4 +20,8 @@ function Header({title, onChangeMode}: HeaderProps) {
   )
 }
 
-export default Header;
+// function Header(props: HeaderProps) {
+//   const title = props.title;
+//   const onChangeMode = props.onChangeMode;
+// }
+
