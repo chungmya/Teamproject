@@ -17,6 +17,7 @@ export default function Home() {
   const [isCreate, setIsCreate] = useState(false);
 
   let content = null;
+  let contextControl = null;
 
   if(isCreate){
     content = <Create onCreate={(_title, _body)=>{
@@ -38,6 +39,7 @@ export default function Home() {
         body={selectedTopic.body}
        />
     );
+    contextControl = <li><a href="/update/2">Update</a></li>
   }
 
   return (
@@ -54,11 +56,17 @@ export default function Home() {
 
       {content}
 
-      {<a href="/create" 
-      onClick={(e)=> {
-        e.preventDefault();
-        setIsCreate(true);
-      }}>Create</a>}
+      <ul>
+        <li>
+          <a href="/create/1" 
+              onClick={(e)=> {
+                e.preventDefault();
+                setIsCreate(true);
+              }}>
+          Create</a>
+        </li>
+        {contextControl}
+      </ul>
 
     </div>
   );
