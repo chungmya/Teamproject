@@ -6,13 +6,13 @@ import Article from "@/components/Contents/Article";
 
 export default function Home() {
 
-  const [topics, SetTopics] = useState<Topic[]>([
+  const [topics, setTopics] = useState<Topic[]>([
     {id:1, title:'html', body:'html is ...'},
     {id:2, title:'scss', body:'scss is ...'},
     {id:3, title:'react', body:'reat is ...'},
   ]);
 
-  const [nexId, setNextId] = useState(4);
+  const [nextId, setNextId] = useState(4);
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(topics[0]);
   const [isCreate, setIsCreate] = useState(false);
 
@@ -20,10 +20,14 @@ export default function Home() {
 
   if(isCreate){
     content = <Create onCreate={(_title, _body)=>{
-      const newTopic = {id:nexId, title:_title, body:_body}
+      const newTopic = {id:nextId, title:_title, body:_body}
       const newTopics = [...topics]
       newTopics.push(newTopic);
-      SetTopics(newTopics);
+      setTopics(newTopics);
+
+      setSelectedTopic(newTopic);
+      setNextId(nextId + 1);
+      setIsCreate(false);
     }}/>;
   } else if (selectedTopic === null) {
     content = <Article title="welcome" body="Hello, WEB" />
