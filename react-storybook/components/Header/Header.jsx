@@ -1,17 +1,11 @@
 "use client";
 
-type HeaderProps = {
-  title: string;
-  onChangeMode: () => void;
-};
-
-
-export default function Header({title, onChangeMode} : HeaderProps) {
+export default function Header({title, onChangeMode}) {
   return (
       <header >
         <h1>
-					<a href="#" onClick={(event)=>{
-					event.preventDefault();
+					<a href="#" onClick={(e)=>{
+					e.preventDefault();
 					onChangeMode();
 				}}
 				>{title}</a>

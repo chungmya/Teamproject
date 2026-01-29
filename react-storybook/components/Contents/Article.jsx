@@ -1,11 +1,5 @@
 "use client";
-
-type ArtiProps = {
-  title:string,
-  body:string,
-}
-
-      export default function Article({title, body}: ArtiProps) {
+      export default function Article({title, body}) {
         return(
           <article>
             <h2>{title}</h2>

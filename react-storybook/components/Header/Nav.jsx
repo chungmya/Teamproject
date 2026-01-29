@@ -1,11 +1,5 @@
 "use client";
 
-type Topic = {
-	id: number;
-	title: string;
-	body: string,
-}
-
 export default function Nav({topics, onSelect}) {
   return (
        <nav>
