@@ -20,7 +20,13 @@
 }
 
 	.completed {
-	text-decoration: line-through;
-	opacity: 0.5;
+			text-decoration: line-through;
+			opacity: 0.5;
+	}
+
+	.todoItem {
+		&::marker {
+			display: none;
+		}
 	}
 

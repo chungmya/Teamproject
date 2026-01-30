@@ -103,6 +103,7 @@ export default function Home() {
         )}
 
         {mode === "READ" && selectedTopic && (
+          <>
           <li>
             <a
               href="/update"
@@ -114,6 +115,18 @@ export default function Home() {
               Update
             </a>
           </li>
+          <li>
+            <input type="button" value="Delete" 
+            onClick={()=>{
+              const newTopics = topics.filter(
+                (topic) => topic.id !== selectedTopic.id
+              );
+              setTopics(newTopics);
+              setSelectedTopic(null);
+            }}
+            />
+          </li>
+          </>
         )}
       </ul>
     </div>

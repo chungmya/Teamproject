@@ -1,13 +1,17 @@
-import { use } from "react";
+import { useState } from "react";
 import TodoItem from "./TodoItem";
-//import styles from "./todolist.module.scss";
+import styles from "./todolist.module.scss";
 
 
 
 function TodoBoard(props) {
 	return (
 		<div className="todoboard">
-			{props.todoList.map((item)=><TodoItem item={item}/>)}
+			<ul>
+				{props.todoList.map((todo) => (
+					<TodoItem key={todo.id} title={todo.title}/>
+				))}
+			</ul>
 		</div>
 	);
 };
