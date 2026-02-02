@@ -1,19 +1,21 @@
-import { useState } from "react";
 import TodoItem from "./TodoItem";
 import styles from "./todolist.module.scss";
 
-
-
-function TodoBoard(props) {
-	return (
-		<div className="todoboard">
-			<ul>
-				{props.todoList.map((todo) => (
-					<TodoItem key={todo.id} title={todo.title}/>
-				))}
-			</ul>
-		</div>
-	);
-};
+function TodoBoard({ todoList, onUpdate, onDelete }) {
+  return (
+    <div className={styles.todoboard}>
+      <ul>
+        {todoList.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onUpdate={onUpdate}
+						onDelete={onDelete}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default TodoBoard;
