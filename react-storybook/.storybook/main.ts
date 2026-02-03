@@ -2,10 +2,11 @@ import type { StorybookConfig } from '@storybook/nextjs-vite';
 
 const config: StorybookConfig = {
   "stories": [
+     "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",  //bluepark 컨포넌트 추가
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    //bluepark 컨포넌트 추가가
-    "../components/**/*.stories.@(ts|tsx)", 
+    "../**/*.stories.@(js|jsx|ts|tsx)", //bluepark 컨포넌트 추가
+
   ],
   "addons": [
     "@chromatic-com/storybook",

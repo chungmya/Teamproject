@@ -1,26 +1,49 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from 'storybook/test';
-import { Button } from './Button';
 
+// @ts-nocheck
+import { fn } from "storybook/test";
+import { Button } from "./Button";
 
-const meta:Meta<typeof Button> = {
-	title:"Components/Button",
-	component:Button,
-	args: { onClick: fn() },
-} 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default {
+  title: "Components/Button",
+  component: Button,
 
-
-export const Default: Story = {
-	args: {
-		label : "Add Todo",
+	//기본 클릭
+  args: {
+    onClick: fn(),
+    label: "Button",
+    variant: "primary",
+    size:"md",
+  },
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "danger"],
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"]
+    },
 	},
 };
 
-export const Disabled: Story = {
-	args: {
-		label : "Disabled",
-		disabled: true,
-	},
+export const Small = {
+  args: {
+    label: "Small",
+    size: "sm",
+  },
 };
+
+export const Large = {
+  args: {
+    label: "Large",
+    size: "lg",
+  },
+};
+
+export const Disabled = {
+  args: {
+    label: "Disabled",
+    disabled: true,
+  },
+};
+
