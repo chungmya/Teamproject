@@ -9,6 +9,7 @@ function Login() {
 
 	 const login = () => {
 		alert(`${inputRef.current.value} 로그인 되었습니다.`)
+		inputRef.current.focus(); // 다시 포커스 생김김
 	 }
 
 
