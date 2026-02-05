@@ -5,6 +5,8 @@ import TodoBoard from "./TodoBoard";
 import TodoItem from "./TodoItem";
 import { title } from "process";
 import Timer from "../Timer/Timer";
+import Login from "../Login/Login";
+
 
 
 function App() {
@@ -80,6 +82,10 @@ function App() {
           timer toggle
         </button>
       </div>
+
+			<div>
+				<Login />
+			</div>
 		</main>
   );
 }
