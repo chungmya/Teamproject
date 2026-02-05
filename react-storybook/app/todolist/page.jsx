@@ -4,6 +4,7 @@ import styles from "./todolist.module.scss";
 import TodoBoard from "./TodoBoard";
 import TodoItem from "./TodoItem";
 import { title } from "process";
+import Timer from "../Timer/Timer";
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
 		}
 
 
+		//타이머
+		  const [showTimer, setShowTimer] = useState(false);
+
+
 
   return (
     <main>
@@ -68,6 +73,13 @@ function App() {
 
 				</div>
 			</div>
+
+			 <div>
+        {showTimer && <Timer />}
+        <button type="text" onClick={() => setShowTimer(!showTimer)}>
+          timer toggle
+        </button>
+      </div>
 		</main>
   );
 }
