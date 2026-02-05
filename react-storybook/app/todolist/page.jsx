@@ -50,12 +50,20 @@ function App() {
 		//타이머
 		  const [showTimer, setShowTimer] = useState(false);
 
+		// 다크 모드
+		const [isDark, setIsDark] = useState(false);
+
+
 
 
   return (
     <main>
-			<div className="container">
+			<div>
+							<div className="container">
 				<h1>TodoList chungmya</h1>
+
+
+
 				<div className="todo-wrap">
 				<div className="category">
 					<p>목표 1</p>
@@ -85,6 +93,7 @@ function App() {
 
 			<div>
 				<Login />
+			</div>
 			</div>
 		</main>
   );
