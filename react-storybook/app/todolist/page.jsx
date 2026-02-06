@@ -58,42 +58,41 @@ function App() {
 
   return (
     <main>
-			<div>
-							<div className="container">
-				<h1>TodoList chungmya</h1>
+			<div className="mode" isDark={isDark} setIsDark={setIsDark}>
+				<header>
+					<h1>TodoList chungmya</h1>
+				</header>
+				<div className="container">
+					<div className="todo-wrap">
+					<div className="category">
+						<p>목표 1</p>
+					</div>
+						<input 
+						value={inputValue} 
+						type="text" 
+						onChange={(event)=>setInputValue(event.target.value)}
+						/>
 
+						<button onClick={addItem}>Add Todo</button>
+						<TodoBoard
+							todoList={todoList}
+							onUpdate={updateTodo}
+							onDelete={deleteTodo}
+						/>
 
-
-				<div className="todo-wrap">
-				<div className="category">
-					<p>목표 1</p>
+					</div>
 				</div>
-					<input 
-					value={inputValue} 
-					type="text" 
-					onChange={(event)=>setInputValue(event.target.value)}
-					/>
 
-					<button onClick={addItem}>Add Todo</button>
-					<TodoBoard
-						todoList={todoList}
-						onUpdate={updateTodo}
-						onDelete={deleteTodo}
-					/>
-
+				<div>
+					{showTimer && <Timer />}
+					<button type="text" onClick={() => setShowTimer(!showTimer)}>
+						timer toggle
+					</button>
 				</div>
-			</div>
 
-			 <div>
-        {showTimer && <Timer />}
-        <button type="text" onClick={() => setShowTimer(!showTimer)}>
-          timer toggle
-        </button>
-      </div>
-
-			<div>
-				<Login />
-			</div>
+				<div>
+					<Login />
+				</div>
 			</div>
 		</main>
   );
