@@ -1,18 +1,16 @@
-
-// @ts-nocheck
-import { fn } from "storybook/test";
+import React from "react";
+import { fn } from "@storybook/test";
 import { Button } from "./Button";
 
 export default {
   title: "Components/Button",
   component: Button,
 
-	//기본 클릭
   args: {
     onClick: fn(),
     label: "Button",
     variant: "primary",
-    size:"md",
+    size: "md",
   },
   argTypes: {
     variant: {
@@ -21,9 +19,9 @@ export default {
     },
     size: {
       control: "select",
-      options: ["sm", "md", "lg"]
+      options: ["sm", "md", "lg"],
     },
-	},
+  },
 };
 
 export const Small = {
@@ -46,4 +44,3 @@ export const Disabled = {
     disabled: true,
   },
 };
-

@@ -1,26 +1,14 @@
-import type { StorybookConfig } from '@storybook/nextjs-vite';
+import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
-  "stories": [
-     "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",  //bluepark 컨포넌트 추가
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../**/*.stories.@(js|jsx|ts|tsx)", //bluepark 컨포넌트 추가
-
-  ],
-  "addons": [
-    "@chromatic-com/storybook",
-    "@storybook/addon-vitest",
-    "@storybook/addon-a11y",
-    "@storybook/addon-docs",
-    "@storybook/addon-onboarding",
-   "@storybook/addon-essentials"
-
-  ],
-  "framework": "@storybook/nextjs-vite",
-  "staticDirs": [
-    "..\\public"
-  ],
-
+  core: { builder: "@storybook/builder-vite" },
+  framework: { name: "@storybook/nextjs", options: {} },
+  stories: ["../**/*.stories.@(js|jsx|ts|tsx|mdx)"],
+  addons: ["@storybook/addon-essentials"],
+  viteFinal: async (config) => {
+    config.define = { ...(config.define ?? {}), "process.env": {} };
+    return config;
+  },
 };
+
 export default config;
