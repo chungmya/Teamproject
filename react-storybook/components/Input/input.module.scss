@@ -1,29 +1,66 @@
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+
 .input {
+  width: 20rem;
+  padding: 0.5rem;
+  padding: 1rem 1.2rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
-  padding: 8px 10px;
   outline: none;
-  width: 260px;
+  font-size: 1.4rem;
 }
 
 .input:focus {
   border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
-.error {
+.error .input {
   border-color: #dc2626;
 }
+.error {
+  &::after {
+    content: "❗";
+    color: red;
+    background-color: #e6e7e7;
+    border-radius: 10rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0;
+    transform: translateY(50%);
+  }
 
-.sm {
-  font-size: 12px;
-  padding: 6px 8px;
+  .message {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+    padding-left: 2rem;
+  }
 }
 
-.md {
-  font-size: 14px;
+.input:disabled {
+  color: #8a8a8a;
+  background-color: #d1d5db;
 }
 
-.lg {
-  font-size: 16px;
-  padding: 10px 12px;
+.sm .input {
+  font-size: 1.2rem;
+  max-width: 12rem;
+  width: 100%;
+}
+
+.lg .input {
+  font-size: 1.8rem;
+  padding: 1.2rem 1.4rem;
+  width: 30rem;
 }

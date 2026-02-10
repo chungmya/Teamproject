@@ -7,22 +7,34 @@ export function Input({
   placeholder = "입력하세요",
   disabled = false,
   error = false,
+  errorMessage = "입력값을 입력해주세요!",
+
   size = "md", // "sm" | "md" | "lg"
   onChange,
 }) {
-  const className = [styles.input, styles[size], error ? styles.error : ""]
+  const wrapClass = [styles.wrap, styles[size], error ? styles.error : ""]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <input
-      className={className}
-      value={value}
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      disabled={disabled}
-      aria-invalid={error}
-      onChange={onChange}
-    />
+    <div className={wrapClass}>
+      <input
+        className={styles.input}
+        value={value}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        disabled={disabled}
+        aria-invalid={error}
+        onChange={onChange}
+      />
+      {error && <p className={styles.message}>{errorMessage}</p>}
+    </div>
   );
 }
+
+export const ErrorState = {
+  args: {
+    error: true,
+    errorMessage: "할일을 입력해주세요!",
+  },
+};

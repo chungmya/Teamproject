@@ -25,9 +25,15 @@ function App() {
   const [number, setNumber] = useState(0);
   const [isKorea, setIskorea] = useState(true);
 
-  const location = {
-    contry: isKorea ? "한국" : "외국",
-  };
+  // const location = {
+  //   contry: isKorea ? "한국" : "외국",
+  // };
+
+  const location = useMemo(() => {
+    return {
+      country: isKorea ? "한국" : "외국",
+    };
+  }, [isKorea]);
 
   useEffect(() => {
     console.log("useEffect 호출");

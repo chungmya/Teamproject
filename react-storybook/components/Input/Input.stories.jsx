@@ -1,5 +1,4 @@
-// @ts-nocheck
-import { fn } from "@storybook/test";
+//import { fn } from "@storybook/test";
 import { Input } from "./Input";
 
 export default {
@@ -7,7 +6,6 @@ export default {
   component: Input,
   args: {
     placeholder: "할 일을 입력하세요",
-    onChange: fn(),
     size: "md",
     disabled: false,
     error: false,
@@ -24,16 +22,16 @@ export const Default = {
   args: {},
 };
 
-export const WithValue = {
-  args: { value: "장보기" },
-};
-
 export const Error = {
-  args: { error: true, placeholder: "필수 입력입니다" },
+  args: {
+    error: true,
+    placeholder: "필수 입력입니다",
+    errorMessage: "할일을 입력해주세요!",
+  },
 };
 
 export const Disabled = {
-  args: { disabled: true, value: "비활성화" },
+  args: { disabled: true, value: "비활성화 상태입니다." },
 };
 
 export const Small = {
