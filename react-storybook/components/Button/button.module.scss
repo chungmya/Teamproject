@@ -3,19 +3,39 @@
   border-radius: 6px;
   border: 1px solid transparent;
   cursor: pointer;
-  display: inline-block;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-//컬러러
-.primary { background: #2563eb; color: white; }
-.secondary { background: #e5e7eb; color: #111827; }
-.danger { background: #dc2626; color: white; }
+//컬러
+.primary {
+  background: #2563eb;
+  color: white;
+}
+.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+.danger {
+  background: #dc2626;
+  color: white;
+}
 
 //사이즈
-.sm { font-size: 12px; padding: 6px 10px; }
-.md { font-size: 14px; padding: 8px 12px; }
-.lg { font-size: 16px; padding: 10px 14px; }
+.sm {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+.md {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+.lg {
+  font-size: 16px;
+  padding: 10px 14px;
+}
 
 .disabled {
   opacity: 0.5;

@@ -8,7 +8,6 @@ export function Input({
   disabled = false,
   error = false,
   errorMessage = "입력값을 입력해주세요!",
-
   size = "md", // "sm" | "md" | "lg"
   onChange,
 }) {
@@ -31,10 +30,3 @@ export function Input({
     </div>
   );
 }
-
-export const ErrorState = {
-  args: {
-    error: true,
-    errorMessage: "할일을 입력해주세요!",
-  },
-};
