@@ -1,33 +1,49 @@
-
 .container {
-	padding: 2rem 5rem;
-	
-	.todo-wrap {
-	border-radius: 1rem;
-	border: 1px solid #bcbcbc;
-	padding: 1rem;
-	}
+  padding: 5rem 10rem;
+  background-color: #eeeeee;
 
-	.category {
-		background-color: #eee;
-		border-radius: 10rem;
-		padding: 0.2rem;
-		width: 5rem;
-		text-align: center;
-		display: flex;
-	}
-
+  h1 {
+    font-size: 5rem;
+    text-align: center;
+  }
 }
 
-	.completed {
-			text-decoration: line-through;
-			opacity: 0.5;
-	}
+.contents {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 3rem;
+  max-width: 100rem;
+  margin: 0 auto;
+}
 
-	.todoItem {
-		&::marker {
-			display: none;
-		}
-	}
+.wrap {
+  margin-bottom: 2rem;
+  .subtit {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
 
+.category {
+  padding: 0.2rem;
+  width: 5rem;
+  text-align: center;
+  display: flex;
+}
 
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.inputRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.inputArea {
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+}

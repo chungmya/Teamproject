@@ -11,7 +11,6 @@ export default {
 
   args: {
     onClick: fn(),
-    label: "Button",
     variant: "primary",
     size: "md",
   },
@@ -27,25 +26,20 @@ export default {
   },
 };
 
+export const Default = {
+  args: { children: "Button" },
+};
+
 export const Small = {
-  args: {
-    label: "Small",
-    size: "sm",
-  },
+  args: { children: "Small", size: "sm" },
 };
 
 export const Large = {
-  args: {
-    label: "Large",
-    size: "lg",
-  },
+  args: { children: "Large", size: "lg" },
 };
 
 export const Disabled = {
-  args: {
-    label: "Disabled",
-    disabled: true,
-  },
+  args: { children: "Disabled", disabled: true },
 };
 
 export const EditButton = {
@@ -61,9 +55,10 @@ export const EditButton = {
 
 export const CompleteButton = {
   args: {
+    variant: "secondary",
     children: (
       <>
-        <CiSquareCheck /> 완료
+        <CiSquareCheck /> 수정완료
       </>
     ),
   },
@@ -71,7 +66,7 @@ export const CompleteButton = {
 
 export const DeleteButton = {
   args: {
-    variant: "danger",
+    variant: "secondary",
     children: (
       <>
         <CiCircleRemove /> 삭제

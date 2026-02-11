@@ -27,6 +27,11 @@
 .sm {
   font-size: 12px;
   padding: 6px 10px;
+
+  .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
 }
 .md {
   font-size: 14px;
@@ -40,4 +45,9 @@
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.fullWidth {
+  width: 100%;
+  display: block;
 }

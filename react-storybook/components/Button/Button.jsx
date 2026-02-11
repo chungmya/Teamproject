@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 export function Button({
-  label,
+  children,
   variant = "primary",
   size = "md",
   onClick,
@@ -22,7 +22,7 @@ export function Button({
   if (href) {
     return (
       <a href={href} className={className} aria-disabled={disabled}>
-        {label}
+        {children}
       </a>
     );
   }
@@ -30,7 +30,7 @@ export function Button({
   // 일반 버튼
   return (
     <button className={className} onClick={onClick} disabled={disabled}>
-      {label}
+      {children}
     </button>
   );
 }

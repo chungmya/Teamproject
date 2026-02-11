@@ -1,5 +1,7 @@
 //import { fn } from "@storybook/test";
+import React from "react";
 import { Input } from "./Input";
+import { Button } from "../Button/Button";
 
 export default {
   title: "Components/Input",
@@ -13,7 +15,7 @@ export default {
   argTypes: {
     size: {
       control: "select",
-      options: ["sm", "md", "lg"],
+      options: ["sm", "md", "lg", "full"],
     },
   },
 };
@@ -40,4 +42,27 @@ export const Small = {
 
 export const Large = {
   args: { size: "lg" },
+};
+
+export const fullSize = {
+  args: { size: "full" },
+  decorators: [
+    (Story) => (
+      <div style={{ width: "100%", padding: "16px", boxSizing: "border-box" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+//버튼이랑 같이 있을때 타입
+export const WithButton = {
+  decorators: [
+    (Story) => (
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <Story />
+        <Button>추가</Button>
+      </div>
+    ),
+  ],
 };

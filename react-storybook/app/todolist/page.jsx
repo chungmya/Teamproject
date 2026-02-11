@@ -53,23 +53,31 @@ function App() {
 
   return (
     <main>
-      <div className="mode" isDark={isDark} setIsDark={setIsDark}>
+      <div className={styles.container} isDark={isDark} setIsDark={setIsDark}>
         <header>
-          <h1>TodoList chungmya</h1>
+          <h1>Chungmya's TodoList</h1>
         </header>
-        <div className="container">
-          <div className="todo-wrap">
-            <div className="category">
-              <p>목표 1</p>
+        <div className={styles.contents}>
+          <div className={styles.contents}>
+            <div className={styles.wrap}>
+              <p className={styles.subtit}>🚩목표 1</p>
             </div>
-            <Input
-              value={inputValue}
-              type="text"
-              placeholder="할 일을 입력하세요"
-              onChange={(e) => setInputValue(event.target.value)}
-            />
+            <div className={styles.inputRow}>
+              <div className={styles.inputArea}>
+                <Input
+                  fullWidth
+                  size="md"
+                  value={inputValue}
+                  type="text"
+                  placeholder="할 일을 입력하세요"
+                  onChange={(e) => setInputValue(e.target.value)}
+                />
+              </div>
+              <Button onClick={addItem}>
+                <span>add Todo</span>
+              </Button>
+            </div>
 
-            <Button onClick={addItem} label="Add Todo" />
             <TodoBoard
               todoList={todoList}
               onUpdate={updateTodo}

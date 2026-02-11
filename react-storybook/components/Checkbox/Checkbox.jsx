@@ -2,17 +2,21 @@ import React from "react";
 import styles from "./Checkbox.module.scss";
 
 export function Checkbox({
-  checked = false,
+  checked,
+  defaultChecked = false,
   disabled = false,
   label,
   onChange,
 }) {
+  const isControlled = checked !== undefined;
+
   return (
     <label className={styles.wrap}>
       <input
         type="checkbox"
         className={styles.input}
-        checked={checked}
+        checked={isControlled ? checked : undefined}
+        defaultChecked={!isControlled ? defaultChecked : undefined}
         disabled={disabled}
         onChange={onChange}
       />
