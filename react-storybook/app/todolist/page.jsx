@@ -72,7 +72,13 @@ function App() {
           }}
         >
           <Header />
-          <div className={styles.contents}>
+          <div
+            className={styles.contents}
+            style={{
+              backgroundColor: isDark ? "darkgray" : "white",
+              color: isDark ? "white" : "black",
+            }}
+          >
             <div className={styles.contents}>
               <div className={styles.wrap}>
                 <p className={styles.subtit}>🚩목표 1</p>
