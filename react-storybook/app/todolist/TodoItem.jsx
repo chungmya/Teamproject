@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./todolist.module.scss";
 
-//컨포넌트 추가가
+//컨포넌트 추가
 import { Button } from "../../components/Button/Button";
 import { Checkbox } from "../../components/Checkbox/Checkbox";
 
