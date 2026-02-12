@@ -21,8 +21,8 @@ function App() {
 
   //저장소..
   const [todoList, setTodoList] = useState([
-    { id: 1, title: "밥먹기기", completed: false },
-    { id: 2, title: "독서하기기", completed: false },
+    { id: 1, title: "밥먹기", completed: false },
+    { id: 2, title: "독서하기", completed: false },
   ]);
 
   const [nextId, setNextId] = useState(3);
