@@ -12,7 +12,7 @@
   background-color: #fff;
   padding: 2rem;
   border-radius: 3rem;
-  max-width: 100rem;
+  max-width: 70rem;
   margin: 0 auto;
 }
 
@@ -45,5 +45,25 @@
 .inputArea {
   flex: 1;
   min-width: 0;
-  align-items: center;
+}
+
+.todoItem {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  .itemList {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+}
+.loginArea {
+  margin-right: auto;
 }

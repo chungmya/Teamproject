@@ -18,64 +18,70 @@ function TodoItem(props) {
 
   return (
     <li className={styles.todoItem}>
-      <Checkbox checked={completed} onChange={() => setCompleted(!completed)} />
-      {isEditing ? (
-        <input
-          type="text"
-          value={editText}
-          onChange={(e) => setEditText(e.target.value)}
+      <div className={styles.itemList}>
+        <Checkbox
+          checked={completed}
+          onChange={() => setCompleted(!completed)}
         />
-      ) : (
-        <span className={completed ? styles.completed : ""}>
-          {todo.title}
-          {todo.id}
-        </span>
-      )}
+        {isEditing ? (
+          <input
+            type="text"
+            value={editText}
+            onChange={(e) => setEditText(e.target.value)}
+          />
+        ) : (
+          <span className={completed ? styles.completed : ""}>
+            {todo.title}
+            {todo.id}
+          </span>
+        )}
+      </div>
+      <div className={styles.buttonGroup}>
+        {!isEditing ? (
+          <Button
+            size="sm"
+            variant="secondary"
+            type="button"
+            value="edit"
+            onClick={() => setIsEditng(true)}
+          >
+            <FiEdit className="icon" />
+            <span className="blind">수정</span>
+          </Button>
+        ) : (
+          <Button
+            size="sm"
+            variant="secondary"
+            type="button"
+            value="save"
+            onClick={() => {
+              props.onUpdate(todo.id, editText);
+              setIsEditng(false);
+            }}
+          >
+            <FiCheck className="icon" />
+            <span className="blind">수정 완료</span>
+          </Button>
+        )}
 
-      {!isEditing ? (
-        <Button
-          size="sm"
-          variant="secondary"
-          type="button"
-          value="edit"
-          onClick={() => setIsEditng(true)}
-        >
-          <FiEdit className="icon" />
-          <span className="blind">수정</span>
-        </Button>
-      ) : (
-        <Button
-          size="sm"
-          variant="secondary"
-          type="button"
-          value="save"
-          onClick={() => {
-            props.onUpdate(todo.id, editText);
-            setIsEditng(false);
-          }}
-        >
-          <FiCheck className="icon" />
-          <span className="blind">수정 완료</span>
-        </Button>
-      )}
-
-      {/* <Button onClick={() => setCompleted(!completed)}>
+        {/* <Button onClick={() => setCompleted(!completed)}>
         <FiCheck />
         <span className="blind">완료</span>
       </Button> */}
 
-      <Button
-        size="sm"
-        variant="secondary"
-        type="button"
-        value="delete"
-        onClick={() => {
-          props.onDelete(todo.id);
-        }}
-      >
-        <FiTrash className="icon" />
-        <span className="blind">삭제</span>
-      </Button>
+        <Button
+          size="sm"
+          variant="secondary"
+          type="button"
+          value="delete"
+          onClick={() => {
+            props.onDelete(todo.id);
+          }}
+        >
+          <FiTrash className="icon" />
+          <span className="blind">삭제</span>
+        </Button>
+      </div>
     </li>
   );
 }

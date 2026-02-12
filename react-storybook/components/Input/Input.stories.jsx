@@ -6,6 +6,7 @@ import { Button } from "../Button/Button";
 export default {
   title: "Components/Input",
   component: Input,
+  tags: ["autodocs"],
   args: {
     placeholder: "할 일을 입력하세요",
     size: "md",
@@ -15,8 +16,9 @@ export default {
   argTypes: {
     size: {
       control: "select",
-      options: ["sm", "md", "lg", "full"],
+      options: ["sm", "md", "lg"],
     },
+    fullWidth: { control: "boolean" },
   },
 };
 
@@ -44,7 +46,7 @@ export const Large = {
   args: { size: "lg" },
 };
 
-export const fullSize = {
+export const fullWidth = {
   args: { size: "full" },
   decorators: [
     (Story) => (
@@ -57,10 +59,13 @@ export const fullSize = {
 
 //버튼이랑 같이 있을때 타입
 export const WithButton = {
+  args: { fullWidth: true },
   decorators: [
     (Story) => (
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <Story />
+      <div style={{ display: "flex", gap: "1rem", width: 400 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <Story />
+        </div>
         <Button>추가</Button>
       </div>
     ),

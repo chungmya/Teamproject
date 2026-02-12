@@ -8,10 +8,16 @@ export function Input({
   disabled = false,
   error = false,
   errorMessage = "입력값을 입력해주세요!",
-  size = "md", // "sm" | "md" | "lg"
+  size = "md", // "sm" | "md" | "lg" | "full"
+  fullWidth = false,
   onChange,
 }) {
-  const wrapClass = [styles.wrap, styles[size], error ? styles.error : ""]
+  const wrapClass = [
+    styles.wrap,
+    styles[size],
+    error ? styles.error : "",
+    fullWidth ? styles.fullWidth : "",
+  ]
     .filter(Boolean)
     .join(" ");
 

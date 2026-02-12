@@ -8,6 +8,7 @@ import { CiEdit, CiCircleRemove, CiSquareCheck } from "react-icons/ci";
 export default {
   title: "Components/Button",
   component: Button,
+  tags: ["autodocs"],
 
   args: {
     onClick: fn(),

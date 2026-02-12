@@ -30,6 +30,8 @@ function App() {
     setNextId(nextId + 1);
     setTodoList([...todoList, newTodo]);
     setInputValue("");
+
+    console.log(todoList);
   };
 
   const updateTodo = (id, newTitle) => {
@@ -73,7 +75,7 @@ function App() {
                   onChange={(e) => setInputValue(e.target.value)}
                 />
               </div>
-              <Button onClick={addItem}>
+              <Button size="md" onClick={addItem}>
                 <span>add Todo</span>
               </Button>
             </div>
@@ -86,15 +88,14 @@ function App() {
           </div>
         </div>
 
-        <div>
+        <div className={styles.loginArea}>
           {showTimer && <Timer />}
           <button type="text" onClick={() => setShowTimer(!showTimer)}>
             timer toggle
           </button>
-        </div>
-
-        <div>
-          <Login />
+          <div>
+            <Login />
+          </div>
         </div>
       </div>
     </main>

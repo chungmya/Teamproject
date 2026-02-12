@@ -4,10 +4,11 @@ import { Checkbox } from "./Checkbox";
 export default {
   title: "Components/Checkbox",
   component: Checkbox,
+  tags: ["autodocs"],
   args: {
     checked: false,
     disabled: false,
-    label: "완료",
+    label: "텍스트",
     onChange: fn(),
   },
 };
